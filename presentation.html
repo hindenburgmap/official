@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/mk45b5wH/favicon.png"/>
+    <meta charset="UTF-8">
+    <title>Hindenburg map – Presentation</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #3b6b1a;
+            color: black;
+            padding: 20px 30px;
+            font-size: 36px;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* LANGUAGE MENU */
+        .lang-container {
+            position: absolute;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            background: white;
+            border: 2px solid black;
+            padding: 6px 10px;
+            font-size: 16px;
+        }
+
+        select {
+            padding: 6px;
+            font-size: 16px;
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            font-weight: bold;
+            color: #cfe8b0;
+        }
+
+        /* FOOTER */
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .legal {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Hindenburg map
+
+    <div class="lang-container">
+        <label for="lang"><strong>Lang</strong></label>
+        <select id="lang" onchange="changeLanguage()">
+            <option value="en" selected>English</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+</header>
+
+<div class="content">
+    <h1 id="title"></h1>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+</div>
+
+<footer>© Hindenburg map</footer>
+<div class="legal"></div>
+
+<script>
+    const texts = {
+        en: {
+            title: "Website presentation",
+            p1: "This website is dedicated to the cartography of the northern part (north of France) of the Hindenburg Line. Mapping the entire line would be a colossal and technically impossible task. However, this site aims to be as precise as possible for this section of the Hindenburg Line.",
+            p2: "This website is free, contains no advertisements, and does not sell your personal data. It is a passion project carried out by Mr. Erwan Merlin with the goal of preserving this heritage.",
+            p3: "To support me or leave a comment: hindenburgmap@gmail.com",
+            p4: "This website was created by Mr. Erwan Merlin on 01/01/2026.",
+            legal: "legal notices"
+        },
+        fr: {
+            title: "Présentation du site",
+            p1: "Ce site web est dédié à la cartographie de la partie nord (nord de la France) de la ligne Hindenburg. Il est impossible de cartographier toute la ligne car ce serait un travail colossal et techniquement impossible. En revanche, ce site se veut être le plus précis sur la cartographie de cette partie de la ligne Hindenburg.",
+            p2: "Ce site web est gratuit, ne dispose pas de publicités et ne vend pas vos informations. C’est un travail de passion réalisé par Monsieur Erwan Merlin, dans un but de préservation de ce patrimoine.",
+            p3: "Pour me soutenir ou donner un commentaire : hindenburgmap@gmail.com",
+            p4: "Ce site web a été créé par Monsieur Erwan Merlin le 01/01/2026.",
+            legal: "mentions légales"
+        },
+        de: {
+            title: "Website-Präsentation",
+            p1: "Diese Website ist der Kartografie des nördlichen Teils (Nordfrankreich) der Hindenburg-Linie gewidmet. Die vollständige Kartierung der Linie wäre eine gewaltige und technisch unmögliche Aufgabe. Ziel dieser Website ist es jedoch, diesen Abschnitt so präzise wie möglich darzustellen.",
+            p2: "Diese Website ist kostenlos, enthält keine Werbung und verkauft keine persönlichen Daten. Es handelt sich um ein Herzensprojekt von Herrn Erwan Merlin zur Bewahrung dieses historischen Erbes.",
+            p3: "Zur Unterstützung oder für Kommentare: hindenburgmap@gmail.com",
+            p4: "Diese Website wurde von Herrn Erwan Merlin am 01.01.2026 erstellt.",
+            legal: "Impressum"
+        }
+    };
+
+    function changeLanguage() {
+        const lang = document.getElementById("lang").value;
+        document.getElementById("title").textContent = texts[lang].title;
+        document.getElementById("p1").textContent = texts[lang].p1;
+        document.getElementById("p2").textContent = texts[lang].p2;
+        document.getElementById("p3").textContent = texts[lang].p3;
+        document.getElementById("p4").textContent = texts[lang].p4;
+        document.querySelector(".legal").textContent = texts[lang].legal;
+    }
+
+    /* APPLY ENGLISH BY DEFAULT ON LOAD */
+    changeLanguage();
+</script>
+
+</body>
+</html>
